@@ -1,13 +1,11 @@
 package org.oxerr.commons.user.service;
 
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.oxerr.commons.user.domain.Role;
 import org.oxerr.commons.user.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,14 +24,5 @@ public interface UserService {
 		@Nullable UUID[] roleIds,
 		@Nonnull Pageable pageable
 	);
-
-	User createUser(
-		@Nullable String username,
-		@Nonnull String rawPassword,
-		Set<Role> roles,
-		boolean enabled
-	);
-
-	User changePassword(@Nonnull User user, @Nonnull String rawPassword);
 
 }

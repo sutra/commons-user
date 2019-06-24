@@ -21,6 +21,7 @@ import com.querydsl.core.types.Predicate;
 public class RoleServiceImpl implements RoleService {
 
 	private final QRole qRole = QRole.role;
+
 	private final RoleRepository roleRepository;
 
 	@Autowired

@@ -1,7 +1,6 @@
 package org.oxerr.commons.user.domain;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,9 +18,6 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlTransient;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 @Entity
 @Access(AccessType.PROPERTY)
 @Table(
@@ -33,9 +29,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 		),
 	}
 )
-public class User extends BaseEntity implements UserDetails {
+public class User extends BaseEntity {
 
-	private static final long serialVersionUID = 2019062001L;
+	private static final long serialVersionUID = 2019062401L;
 
 	private String username;
 	private String password;
@@ -63,7 +59,6 @@ public class User extends BaseEntity implements UserDetails {
 		this.enabled = enabled;
 	}
 
-	@Override
 	@Column(name = "username")
 	public String getUsername() {
 		return username;
@@ -73,7 +68,6 @@ public class User extends BaseEntity implements UserDetails {
 		this.username = username;
 	}
 
-	@Override
 	@XmlTransient
 	@Column(name = "password")
 	public String getPassword() {
@@ -170,14 +164,10 @@ public class User extends BaseEntity implements UserDetails {
 	@XmlTransient
 	@Transient
 	public boolean hasAnyAuthority(String... authorities) {
-		return getRoles().stream().map(role -> role.getAuthority())
+		return getRoles().stream().map(role -> role.getName())
 			.anyMatch(Arrays.asList(authorities)::contains);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
 	@Column(nullable = false)
 	public boolean isEnabled() {
 		return enabled;
@@ -185,31 +175,6 @@ public class User extends BaseEntity implements UserDetails {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	@Override
-	@Transient
-	@XmlTransient
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return getRoles();
-	}
-
-	@Override
-	@Transient
-	public boolean isAccountNonExpired() {
-		return true;
-	}
-
-	@Override
-	@Transient
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	@Transient
-	public boolean isCredentialsNonExpired() {
-		return true;
 	}
 
 }

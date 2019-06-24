@@ -49,6 +49,7 @@
 		<module>commons-user-domain</module>
 		<module>commons-user-repository</module>
 		<module>commons-user-service</module>
+		<module>commons-user-security</module>
 		<module>commons-user-service-impl</module>
 	</modules>
 	<build>

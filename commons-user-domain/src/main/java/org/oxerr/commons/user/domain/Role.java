@@ -6,11 +6,7 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
-import javax.xml.bind.annotation.XmlTransient;
-
-import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Cacheable
@@ -24,9 +20,9 @@ import org.springframework.security.core.GrantedAuthority;
 		),
 	}
 )
-public class Role extends BaseEntity implements GrantedAuthority {
+public class Role extends BaseEntity {
 
-	private static final long serialVersionUID = 2019062001L;
+	private static final long serialVersionUID = 2019062401L;
 
 	public static final String USER = "USER";
 	public static final String ADMIN = "ADMIN";
@@ -52,16 +48,6 @@ public class Role extends BaseEntity implements GrantedAuthority {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	@Transient
-	@XmlTransient
-	public String getAuthority() {
-		return getName();
 	}
 
 }

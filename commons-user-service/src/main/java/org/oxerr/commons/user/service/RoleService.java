@@ -18,6 +18,6 @@ public interface RoleService {
 
 	Optional<Role> getRoleByName(@Nonnull String name);
 
-	Page<Role> getRoles(@Nullable String name, Pageable pageable);
+	Page<Role> getRoles(@Nullable String name, @Nonnull Pageable pageable);
 
 }
