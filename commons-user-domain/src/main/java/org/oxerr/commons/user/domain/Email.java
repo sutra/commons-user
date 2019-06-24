@@ -24,7 +24,7 @@ import javax.persistence.UniqueConstraint;
 	name = "email",
 	uniqueConstraints = {
 		@UniqueConstraint(
-			name = "uk_address",
+			name = "uk_email_address",
 			columnNames = "address"
 		),
 	}
