@@ -41,6 +41,10 @@ public class Role extends BaseEntity implements GrantedAuthority {
 	public Role() {
 	}
 
+	public Role(String name) {
+		this.name = name;
+	}
+
 	@Column(nullable = false, length = 32)
 	public String getName() {
 		return name;

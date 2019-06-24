@@ -3,6 +3,8 @@ package org.oxerr.commons.user.service.impl;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
+
 import org.oxerr.commons.user.domain.QRole;
 import org.oxerr.commons.user.domain.Role;
 import org.oxerr.commons.user.repository.RoleRepository;
@@ -47,6 +49,14 @@ public class RoleServiceImpl implements RoleService {
 			name != null ? qRole.name.eq(name) : null
 		);
 		return this.roleRepository.findAll(predicate, pageable);
+	}
+
+	@PostConstruct
+	private void init() {
+		this.getRoleByName(Role.ROLE_ADMIN)
+			.orElseGet(() -> this.saveRole(new Role(Role.ROLE_ADMIN)));
+		this.getRoleByName(Role.ROLE_USER)
+			.orElseGet(() -> this.saveRole(new Role(Role.ROLE_USER)));
 	}
 
 }

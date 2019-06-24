@@ -74,7 +74,10 @@ public class UserServiceImpl implements UserService {
 	) {
 		final User user = new User(
 			username,
-			this.passwordEncoder.encode(rawPassword), roles, enabled
+			this.passwordEncoder.encode(rawPassword),
+			null,
+			roles,
+			enabled
 		);
 		return this.saveUser(user);
 	}

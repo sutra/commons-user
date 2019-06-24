@@ -52,11 +52,13 @@ public class User extends BaseEntity implements UserDetails {
 	public User(
 		String username,
 		String password,
+		String nickname,
 		Set<Role> roles,
 		boolean enabled
 	) {
 		this.username = username;
 		this.password = password;
+		this.nickname = nickname;
 		this.roles = roles;
 		this.enabled = enabled;
 	}
