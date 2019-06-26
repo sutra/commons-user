@@ -6,6 +6,7 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -26,6 +27,12 @@ import javax.persistence.UniqueConstraint;
 		@UniqueConstraint(
 			name = "uk_email_address",
 			columnNames = "address"
+		),
+	},
+	indexes = {
+		@Index(
+			name = "idx_email_user",
+			columnList = "user_id"
 		),
 	}
 )

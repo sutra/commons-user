@@ -9,7 +9,7 @@
 	<parent>
 		<groupId>org.oxerr.commons</groupId>
 		<artifactId>commons-user</artifactId>
-		<version>1.0.0</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>commons-user-service-impl</artifactId>
 	<name>commons-user-service-implementation</name>

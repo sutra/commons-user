@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -94,7 +95,17 @@ public class User extends BaseEntity {
 		joinColumns = @JoinColumn(name = "user_id"),
 		inverseJoinColumns = @JoinColumn(name = "role_id"),
 		foreignKey = @ForeignKey(name = "fk_authorities_user"),
-		inverseForeignKey = @ForeignKey(name = "fk_authorities_role")
+		inverseForeignKey = @ForeignKey(name = "fk_authorities_role"),
+		indexes = {
+			@Index(
+				name = "idx_authorities_user",
+				columnList = "user_id"
+			),
+			@Index(
+				name = "idx_authorities_role",
+				columnList = "role_id"
+			),
+		}
 	)
 	public Set<Role> getRoles() {
 		return roles;
