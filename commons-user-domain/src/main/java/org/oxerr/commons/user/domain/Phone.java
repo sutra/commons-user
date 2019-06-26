@@ -6,6 +6,7 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
+import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -28,7 +29,14 @@ import javax.persistence.UniqueConstraint;
 			name = "uk_phone_number",
 			columnNames = "number"
 		),
+	},
+	indexes = {
+		@Index(
+			name = "idx_phone_user",
+			columnList = "user_id"
+		),
 	}
+
 )
 public class Phone extends BaseEntity {
 
