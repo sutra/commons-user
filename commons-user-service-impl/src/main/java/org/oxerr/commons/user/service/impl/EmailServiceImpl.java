@@ -18,6 +18,7 @@ import com.querydsl.core.types.Predicate;
 public class EmailServiceImpl implements EmailService {
 
 	private final QEmail qEmail = QEmail.email;
+
 	private final EmailRepository emailRepository;
 
 	@Autowired
