@@ -53,6 +53,7 @@
 		<module>commons-user-service-impl</module>
 		<module>commons-user-email</module>
 		<module>commons-user-phone</module>
+		<module>commons-user-dependencies</module>
 	</modules>
 	<build>
 		<plugins>
