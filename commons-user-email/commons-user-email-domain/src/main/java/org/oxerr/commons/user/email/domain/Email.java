@@ -1,4 +1,4 @@
-package org.oxerr.commons.user.domain;
+package org.oxerr.commons.user.email.domain;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -12,56 +12,57 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.oxerr.commons.user.domain.BaseEntity;
+import org.oxerr.commons.user.domain.User;
+
 /**
- * The phone.
- *
+ * The email.
  * <p>
- * One {@link User} could have 0..* #{@link Phone}s.
+ * One {@link User} could have 0..* #{@link Email}s.
  * </p>
  */
 @Entity
 @Cacheable
 @Access(AccessType.PROPERTY)
 @Table(
-	name = "phone",
+	name = "email",
 	uniqueConstraints = {
 		@UniqueConstraint(
-			name = "uk_phone_number",
-			columnNames = "number"
+			name = "uk_email_address",
+			columnNames = "address"
 		),
 	},
 	indexes = {
 		@Index(
-			name = "idx_phone_user",
+			name = "idx_email_user",
 			columnList = "user_id"
 		),
 	}
-
 )
-public class Phone extends BaseEntity {
+public class Email extends BaseEntity {
 
 	private static final long serialVersionUID = 2019062001L;
 
 	private User user;
 
-	private String number;
+	private String address;
 
-	public Phone() {
+	public Email() {
 	}
 
-	public Phone(User user) {
+	public Email(User user) {
 		this.user = user;
 	}
 
-	public Phone(User user, String number) {
+	public Email(User user, String address) {
 		this.user = user;
-		this.number = number;
+		this.address = address;
 	}
 
 	@ManyToOne(optional = false)
 	@JoinColumn(
 		name = "user_id",
-		foreignKey = @ForeignKey(name = "fk_phone_user")
+		foreignKey = @ForeignKey(name = "fk_email_user")
 	)
 	public User getUser() {
 		return user;
@@ -71,13 +72,13 @@ public class Phone extends BaseEntity {
 		this.user = user;
 	}
 
-	@Column(name = "\"number\"", nullable = false)
-	public String getNumber() {
-		return number;
+	@Column(name = "address", nullable = false)
+	public String getAddress() {
+		return address;
 	}
 
-	public void setNumber(String number) {
-		this.number = number;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 }

@@ -1,11 +1,11 @@
-package org.oxerr.commons.user.service.impl;
+package org.oxerr.commons.user.phone.service.impl;
 
 import java.util.Optional;
 
-import org.oxerr.commons.user.domain.Phone;
-import org.oxerr.commons.user.domain.QPhone;
-import org.oxerr.commons.user.repository.PhoneRepository;
-import org.oxerr.commons.user.service.PhoneService;
+import org.oxerr.commons.user.phone.domain.Phone;
+import org.oxerr.commons.user.phone.domain.QPhone;
+import org.oxerr.commons.user.phone.repository.PhoneRepository;
+import org.oxerr.commons.user.phone.service.PhoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

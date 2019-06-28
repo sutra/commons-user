@@ -1,11 +1,11 @@
-package org.oxerr.commons.user.service;
+package org.oxerr.commons.user.email.service;
 
 import java.util.Optional;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.oxerr.commons.user.domain.Email;
+import org.oxerr.commons.user.email.domain.Email;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

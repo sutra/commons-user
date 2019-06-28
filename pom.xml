@@ -51,6 +51,8 @@
 		<module>commons-user-service</module>
 		<module>commons-user-security</module>
 		<module>commons-user-service-impl</module>
+		<module>commons-user-email</module>
+		<module>commons-user-phone</module>
 	</modules>
 	<build>
 		<plugins>

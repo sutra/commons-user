@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://maven.apache.org/POM/4.0.0
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.oxerr.commons</groupId>
+		<artifactId>commons-user</artifactId>
+		<version>1.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>commons-user-email</artifactId>
+	<packaging>pom</packaging>
+	<name>commons-user-email</name>
+	<description>commons user email</description>
+	<modules>
+		<module>commons-user-email-domain</module>
+		<module>commons-user-email-repository</module>
+		<module>commons-user-email-service</module>
+		<module>commons-user-email-service-impl</module>
+	</modules>
+</project>
