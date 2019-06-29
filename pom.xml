@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.oxerr.commons</groupId>
 	<artifactId>commons-user</artifactId>
-	<version>1.0.1</version>
+	<version>2.0.0</version>
 	<packaging>pom</packaging>
 	<name>commons-user</name>
 	<description>commons user</description>
@@ -51,6 +51,9 @@
 		<module>commons-user-service</module>
 		<module>commons-user-security</module>
 		<module>commons-user-service-impl</module>
+		<module>commons-user-email</module>
+		<module>commons-user-phone</module>
+		<module>commons-user-dependencies</module>
 	</modules>
 	<build>
 		<plugins>

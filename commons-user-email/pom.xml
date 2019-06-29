@@ -11,14 +11,14 @@
 		<artifactId>commons-user</artifactId>
 		<version>2.0.0</version>
 	</parent>
-	<artifactId>commons-user-repository</artifactId>
-	<name>commons-user-repository</name>
-	<description>commons user repository</description>
-	<dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>commons-user-domain</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
+	<artifactId>commons-user-email</artifactId>
+	<packaging>pom</packaging>
+	<name>commons-user-email</name>
+	<description>commons user email</description>
+	<modules>
+		<module>commons-user-email-domain</module>
+		<module>commons-user-email-repository</module>
+		<module>commons-user-email-service</module>
+		<module>commons-user-email-service-impl</module>
+	</modules>
 </project>

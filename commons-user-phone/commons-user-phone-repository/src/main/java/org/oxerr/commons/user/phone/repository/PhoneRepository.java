@@ -1,9 +1,9 @@
-package org.oxerr.commons.user.repository;
+package org.oxerr.commons.user.phone.repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import org.oxerr.commons.user.domain.Phone;
+import org.oxerr.commons.user.phone.domain.Phone;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.CrudRepository;

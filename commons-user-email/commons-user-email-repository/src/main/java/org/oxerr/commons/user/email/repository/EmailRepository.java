@@ -1,9 +1,9 @@
-package org.oxerr.commons.user.repository;
+package org.oxerr.commons.user.email.repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
-import org.oxerr.commons.user.domain.Email;
+import org.oxerr.commons.user.email.domain.Email;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.CrudRepository;

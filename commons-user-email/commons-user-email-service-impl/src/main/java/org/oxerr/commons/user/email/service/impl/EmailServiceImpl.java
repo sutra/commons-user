@@ -1,11 +1,11 @@
-package org.oxerr.commons.user.service.impl;
+package org.oxerr.commons.user.email.service.impl;
 
 import java.util.Optional;
 
-import org.oxerr.commons.user.domain.Email;
-import org.oxerr.commons.user.domain.QEmail;
-import org.oxerr.commons.user.repository.EmailRepository;
-import org.oxerr.commons.user.service.EmailService;
+import org.oxerr.commons.user.email.domain.Email;
+import org.oxerr.commons.user.email.domain.QEmail;
+import org.oxerr.commons.user.email.repository.EmailRepository;
+import org.oxerr.commons.user.email.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
