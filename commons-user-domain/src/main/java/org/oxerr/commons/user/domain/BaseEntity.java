@@ -8,14 +8,19 @@ import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -28,7 +33,10 @@ public abstract class BaseEntity implements Serializable {
 
 	private UUID id;
 
+	private User createdBy;
 	private Instant createdDate;
+
+	private User lastModifiedBy;
 	private Instant lastModifiedDate;
 
 	private long version;
@@ -44,6 +52,21 @@ public abstract class BaseEntity implements Serializable {
 		this.id = id;
 	}
 
+	@CreatedBy
+	@ManyToOne
+	@JoinColumn(
+		name = "created_by",
+		updatable = false,
+		foreignKey = @ForeignKey(name = "fk_created_by")
+	)
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
 	@CreatedDate
 	@Column(
 		name = "created_date",
@@ -57,6 +80,20 @@ public abstract class BaseEntity implements Serializable {
 
 	public void setCreatedDate(Instant createdDate) {
 		this.createdDate = createdDate;
+	}
+
+	@LastModifiedBy
+	@ManyToOne
+	@JoinColumn(
+		name = "last_modified_by",
+		foreignKey = @ForeignKey(name = "fk_last_modified_by")
+	)
+	public User getLastModifiedBy() {
+		return lastModifiedBy;
+	}
+
+	public void setLastModifiedBy(User lastModifiedBy) {
+		this.lastModifiedBy = lastModifiedBy;
 	}
 
 	@LastModifiedDate
